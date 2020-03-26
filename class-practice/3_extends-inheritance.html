@@ -1,0 +1,61 @@
+<title>Classes: Extends/Inheritance</title>
+<body>
+  <script type="text/javascript">
+    /* 
+      The "extends" keyword allows us to achieve the concept of inheritance in javascript classes. 
+      This is to create a parent-child relationship in classes. Such that the child inherits features from its parent. 
+    */
+    class Person {
+      constructor(_name, _age) {
+        this.name = _name;
+        this.age = _age;
+        console.log("A person has been created.");
+      }
+
+      describe() {
+        console.log(`My name is ${this.name} and I am ${this.age} years old.`);
+      }
+    }
+
+    class Programmer extends Person {
+      /* 
+        The "extends" keyword used in this class means that the Programmer class inherits all of the attributes of Person. 
+        Thus, a Programmer will have a name and age just like Person.
+      */
+      constructor(_name, _age, _yearsOfExp) {
+        super(_name, _age); // This calls the constructor from the parent (Person) class.
+        this.yearsOfExp = _yearsOfExp;
+        console.log("That person was a programmer."); // Parent class gets called first.
+      }
+
+      code() {
+        // As this is a Programmer method, a regular Person cannot perform this method.
+        console.log(`${this.name} is coding.`);
+      }
+    }
+
+    const programmers = [
+      new Programmer("Alan", 25, 8),
+      new Programmer("Dick", 30, 14)
+    ];
+
+    // person1.code(); // Will fail because this a Programmer method.
+
+    function developSoftware(programmers) {
+      //Takes an array of programmers.
+      for (let programmer of programmers) {
+        programmer.code();
+      }
+    }
+
+    developSoftware(programmers);
+    /*
+    // Uncomment for initial state.  
+    let person1 = new Person("Jeff", 45);
+    let programmer1 = new Programmer("Dom", 56, 12);
+    person1.describe();
+    programmer1.describe();
+    programmer1.code();
+  */
+  </script>
+</body>

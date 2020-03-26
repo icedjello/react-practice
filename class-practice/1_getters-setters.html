@@ -1,0 +1,34 @@
+<title>Classes: Getters & Setters</title>
+
+<body>
+  <script type="text/javascript">
+    class Square {
+      constructor(_width) {
+        this.width = _width;
+        this.height = _width;
+        this.numOfRequestsForArea = 0;
+      }
+
+      get area() {
+        // "get" is a keyword.
+        this.numOfRequestsForArea++;
+        return this.width * this.height; // Behaves like a method.
+      }
+
+      set area(area) {
+        this.width = Math.sqrt(area);
+        this.height = this.width;
+      }
+    }
+
+    let square1 = new Square(4);
+    console.log(`Square 1 area = ${square1.area}.`);
+    console.log("Changing area to 25.");
+    square1.area = 25;
+    console.log(`Square 1 area = ${square1.area}.`);
+    console.log(
+      `square 1 width = ${square1.width}, height = ${square1.height}`
+    );
+    console.log(square1.numOfRequestsForArea);
+  </script>
+</body>

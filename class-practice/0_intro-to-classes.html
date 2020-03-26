@@ -1,0 +1,53 @@
+<title>Classes: Introduction</title>
+  <body>
+    <script type="text/javascript">
+      /* 
+      class -> object 
+      A class is used to create objects which is what is used by the program to do stuff.
+      
+      You can define what an object has via their Instance Properties eg: 
+      - name 
+      - age 
+      - height
+
+      These are unique to each object created from that class.
+
+      You can also define what an object does via their Instance Methods eg: 
+      - talk
+      - run
+      - jump 
+    */
+
+      class Rectangle {
+        //Capitalise for convention.
+        constructor(_width, _height, _color) {
+          // This will be run once when the object is created.
+          console.log(" A rectangle is being created!");
+
+          this.shape = "rectangle";
+          this.width = _width;
+          this.height = _height;
+          this.color = _color;
+          // "this" is a keyword referring to the current object.
+          // "this" refers to the object being created by the class.
+        }
+        getArea() {
+          // this is generic and can by used in/by all objects of that class
+          return this.width * this.height;
+        }
+
+        printDescription() {
+          console.log(
+            `I am a ${this.shape} of ${this.width} width, ${this.height} height and I am ${this.color}.`
+          );
+        }
+      }
+      // Instance properties are unique to each object
+      let myRectangle1 = new Rectangle(3, 5, "blue");
+      let myRectangle2 = new Rectangle(10, 5, "red");
+      console.log(myRectangle1.getArea());
+      console.log(myRectangle2.getArea());
+      myRectangle1.printDescription();
+    </script>
+  </body>
+</html>

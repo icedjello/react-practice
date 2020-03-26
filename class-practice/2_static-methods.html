@@ -1,0 +1,33 @@
+<title>Classes: Static Methods</title>
+
+<body>
+  <script type="text/javascript">
+    class Square {
+      constructor(_width) {
+        this.width = _width;
+        this.height = _width;
+      }
+
+      static equals(square1, square2) {
+        // "static" keyword.
+        // a & b are two different squares.
+        return (
+          square1.width * square1.height === square2.width * square2.height
+        );
+      }
+
+      static isValidDimensions(width, height) {
+        // A helper function to check if a square's dimensions are valid.
+        return width === height;
+      }
+    }
+    let square1 = new Square(8);
+    let square2 = new Square(9);
+    console.log(Square.equals(square1, square2));
+    /*
+      Static method called straight from class.
+      Static method doesn't require a specific instance of an object.
+    */
+    console.log(Square.isValidDimensions(6, 6));
+  </script>
+</body>
